@@ -29,8 +29,8 @@ public class CartaoController {
 	
 	@PostMapping(consumes = APPLICATION_JSON_VALUE)
 	public ResponseEntity<CartaoDto> criarCartao(@RequestBody CartaoDto cartaoDto) {
-		cartaoService.criarCartao(cartaoDto);
-		return ResponseEntity.status(HttpStatus.CREATED).body(cartaoDto);
+		HttpStatus statusCartao = cartaoService.criarCartao(cartaoDto);
+		return ResponseEntity.status(statusCartao).body(cartaoDto);
 	}
 	
 	@GetMapping(path = "/{numeroCartao}")
